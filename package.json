@@ -1,0 +1,19 @@
+{
+  "name": "course-registration-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue": "latest",
+    "pinia": "^4.0.3",
+    "typescript": "latest",
+    "vite": "latest",
+    "vue": "latest",
+    "vue-router": "latest",
+    "vue-tsc": "latest"
+  }
+}
