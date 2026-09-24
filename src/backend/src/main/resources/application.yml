@@ -1,0 +1,35 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: course-registration
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:crs}?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai&createDatabaseIfNotExist=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:123456}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+# 遗留课程目录 / 计费系统接入点（只读目录、关闭注册时通知计费）
+crs:
+  jwt:
+    secret: change-me-wylie-course-registration-secret-key-32b
+    expire-hours: 12
+  catalog:
+    # 遗留 Ingres 只读 SQL 接口，实际实现见 CourseCatalogClient
+    enabled: false
+    jdbc-url:
+  billing:
+    enabled: false
+    endpoint:
+    retry-interval-ms: 15000
+  term:
+    current: "2026 秋季"
